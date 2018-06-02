@@ -33,6 +33,12 @@ export default class Calculator extends React.Component {
     switch(operator){
       case '/':
         return this.setState({ total: (num[0]/num[1])})
+      case '+':
+        return this.setState({ total: (num[0]+num[1])})
+      case '-':
+        return this.setState({ total: (num[0]-num[1])}) 
+      case 'x':
+        return this.setState({ total: (num[0]*num[1])})
       default:
         break;
     }
@@ -48,13 +54,12 @@ export default class Calculator extends React.Component {
         <div>{this.state.total}</div>
         <div>
           <button 
-            style={{width:50, borderRadius: 25}}
+            style={{width:100, borderRadius: 25}}
             onClick={this.clearResult}
           > AC </button>
-          <button style={{width:50, borderRadius: 25}}>+/-</button>
-          <button style={{width:50, borderRadius: 25}}>%</button>
+          {/* <button style={{width:50, borderRadius: 25}}>%</button> */}
           <button 
-            style={{width:50, borderRadius: 25, color: 'white', backgroundColor: 'orange'}}
+            style={{width:100, borderRadius: 25, color: 'white', backgroundColor: 'orange'}}
             onClick={()=>this.handleResult('/')}
           >/</button> <br/>
           <button 
@@ -65,20 +70,54 @@ export default class Calculator extends React.Component {
             style={{width:50, borderRadius: 25, backgroundColor: '#FAD7A0'}}
             onClick={()=>this.handleResult(8)}
           >8</button>
-          <button style={{width:50, borderRadius: 25, backgroundColor: '#FAD7A0'}}>9</button>
-          <button style={{width:50, borderRadius: 25, color: 'white', backgroundColor: 'orange'}}>x</button> <br/>
-          <button style={{width:50, borderRadius: 25, backgroundColor: '#FAD7A0'}}>4</button>
-          <button style={{width:50, borderRadius: 25, backgroundColor: '#FAD7A0'}}>5</button>
-          <button style={{width:50, borderRadius: 25, backgroundColor: '#FAD7A0'}}>6</button>
-          <button style={{width:50, borderRadius: 25, color: 'white', backgroundColor: 'orange'}}>-</button><br/>
-          <button style={{width:50, borderRadius: 25, backgroundColor: '#FAD7A0'}}>1</button>
-          <button style={{width:50, borderRadius: 25, backgroundColor: '#FAD7A0'}}>2</button>
-          <button style={{width:50, borderRadius: 25, backgroundColor: '#FAD7A0'}}>3</button>
-          <button style={{width:50, borderRadius: 25, color: 'white', backgroundColor: 'orange'}}>+</button> <br/>
-          <button style={{width:100, borderRadius: 25, backgroundColor: '#FAD7A0'}}>0</button>
-          <button style={{width:50, borderRadius: 25, backgroundColor: '#FAD7A0'}}>.</button>
+          <button 
+            style={{width:50, borderRadius: 25, backgroundColor: '#FAD7A0'}}
+            onClick={()=>this.handleResult(9)}
+          >9</button>
           <button 
             style={{width:50, borderRadius: 25, color: 'white', backgroundColor: 'orange'}}
+            onClick={()=>this.handleResult('x')}
+          >x</button> <br/>
+          <button 
+            style={{width:50, borderRadius: 25, backgroundColor: '#FAD7A0'}}
+            onClick={()=>this.handleResult(4)}
+          >4</button>
+          <button 
+            style={{width:50, borderRadius: 25, backgroundColor: '#FAD7A0'}}
+            onClick={()=>this.handleResult(5)}
+          >5</button>
+          <button 
+            style={{width:50, borderRadius: 25, backgroundColor: '#FAD7A0'}}
+            onClick={()=>this.handleResult(6)}
+          >6</button>
+          <button 
+            style={{width:50, borderRadius: 25, color: 'white', backgroundColor: 'orange'}}
+            onClick={()=>this.handleResult('-')}
+          >-</button><br/>
+          <button 
+            style={{width:50, borderRadius: 25, backgroundColor: '#FAD7A0'}}
+            onClick={()=>this.handleResult(1)}
+          >1</button>
+          <button 
+            style={{width:50, borderRadius: 25, backgroundColor: '#FAD7A0'}}
+            onClick={()=>this.handleResult(2)}
+          >2</button>
+          <button 
+            style={{width:50, borderRadius: 25, backgroundColor: '#FAD7A0'}}
+            onClick={()=>this.handleResult(3)}
+          >3</button>
+          <button 
+            style={{width:50, borderRadius: 25, color: 'white', backgroundColor: 'orange'}}
+            onClick={()=>this.handleResult('+')}
+          >+</button> <br/>
+          <button 
+            style={{width:100, borderRadius: 25, backgroundColor: '#FAD7A0'}}
+            onClick={()=>this.handleResult(0)}
+          >0</button>
+          {/* <button 
+            style={{width:50, borderRadius: 25, backgroundColor: '#FAD7A0'}}>.</button> */}
+          <button 
+            style={{width:100, borderRadius: 25, color: 'white', backgroundColor: 'orange'}}
             onClick={()=>this.handleCalculate('=')}
           >=</button>
         </div>
